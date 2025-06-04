@@ -30,14 +30,6 @@ def suggest_params(trial, objective, num_class=None):
         seed            = 42,
         verbose         = -1
     )
-    params = dict(
-        learning_rate   = trial.suggest_float('learning_rate', 0.01, 0.1, log=True),
-        num_leaves      = trial.suggest_int('num_leaves', 31, 127),
-        max_depth       = trial.suggest_int('max_depth', -1, 10),
-        min_child_samples = trial.suggest_int('min_child_samples', 20, 100),
-        lambda_l1       = trial.suggest_float('lambda_l1', 0.0, 1.0),
-        lambda_l2       = trial.suggest_float('lambda_l2', 0.0, 1.0),
-    )
     if objective == 'binary':
         params['is_unbalance'] = True
     else:
